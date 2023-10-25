@@ -230,9 +230,10 @@ deck.draw()
 from math import pi
 from abc import ABCMeta, abstractmethod
 #abstract class
-class PlaneFigure(metaClass = ABCMeta):
-    def __init__(self) -> None:
-        pass
+class PlaneFigure(metaclass = ABCMeta):
+    def __init__(self):
+        return
+
     
     #compute total length
     @abstractmethod
@@ -242,7 +243,7 @@ class PlaneFigure(metaClass = ABCMeta):
     def compute_surface():
         return NotImplementedError
     
-class Triangle(PlaneFigure):
+class Rectangle(PlaneFigure):
     def __init__(self,a,b):
         self.a = int(a)
         self.b = int(b)
@@ -254,7 +255,7 @@ class Triangle(PlaneFigure):
         return self.a*self.b
 
 
-class Rectangle(PlaneFigure):
+class Triangle(PlaneFigure):
     def __init__(self,base,c1,c2,h):
         self.base = int(base)
         self.c1 = int(c1)
@@ -278,4 +279,3 @@ class Circle(PlaneFigure):
     
     def compute_surface(self):
         return pi*self.radius^2
-
