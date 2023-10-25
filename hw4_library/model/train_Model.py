@@ -20,7 +20,10 @@ class Train_Model:
         """
         self.feature_columns = feature_columns
         self.target_columns = target_columns
-        self.model = RandomForestClassifier(**hyperparameters)
+        if hyperparameters != None:
+            self.model = RandomForestClassifier(**hyperparameters)
+        else:
+            self.model = RandomForestClassifier()
 
         self.mordel_Construct_Instance_Counter += 1
 
