@@ -14,11 +14,11 @@ def get_requirements(requirements_path='requirements.txt'):
 setup(
     name='hw4_library',
     version=hw4_library.__version__,
-    description='Example library',
-    author='Wu Hangze',
+    description='python assignment 4 - hw4_library',
+    author=['Luke Atazona','Wu Hangze'],
+    
     packages=find_packages(where='', exclude=['tests']),
     install_requires=get_requirements(),
-    setup_requires=['pytest-runner', 'wheel'],
     url='https://github.com/whz1076140740/PythonHomeWork4.git',
     classifiers=[
         'Programming Language :: Python :: 3.12.0'
