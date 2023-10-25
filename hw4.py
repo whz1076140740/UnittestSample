@@ -18,12 +18,14 @@
 # the parameters should be stored as attributes
 # called "name" and "symptoms" respectively
 
+
 class Patient:
     def __init__(self, name, symptoms):
         self.name = name
 
         self._symptoms = []
-        self._symptoms.append(symptoms)
+        if symptoms != None:
+            self._symptoms = symptoms
         
         self._test = []
         self._result = []
@@ -40,6 +42,9 @@ class Patient:
     def add_test(self, test, result):
         self._test.append(test)
         self._result.append(result)
+        #it's sort by add sequence, 
+        #if add "covid" with true at beginning and add "covid" with false at later time
+        #probability is taken by later added time
         
 
 #
@@ -75,10 +80,8 @@ class Patient:
                 covid_Index = self._test.index("covid")
                 if self._result[covid_Index]:
                     covidProbability = .99
-                    return covidProbability
                 else:
                     covidProbability = 0.01
-                    return covidProbability
 
         #check not-tested patient possibility
         #for each symptom, add possibility by 0.1
@@ -97,6 +100,12 @@ class Patient:
         return covidProbability
 
 
+p1 = Patient("saly",['fever', 'cough', 'anosmia','fever', 'cough', 'anosmia'])
+print("covid probability:", p1.has_covid())
+p1.add_test("x_ray",True)
+print("covid probability:", p1.has_covid())
+p1.add_test("covid",False)
+print("covid probability:", p1.has_covid())
 
 ######################
 
